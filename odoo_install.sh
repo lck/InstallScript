@@ -369,10 +369,11 @@ else
   echo "SSL/HTTPS isn't enabled due to choice of the user or because of a misconfiguration!"
 fi
 
-echo -e "* Starting Odoo Service"
-sudo su root -c "/etc/init.d/$OE_CONFIG start"
+#echo -e "* Starting Odoo Service"
+#sudo su root -c "/etc/init.d/$OE_CONFIG start"
 echo "-----------------------------------------------------------"
-echo "Done! The Odoo server is up and running. Specifications:"
+#echo "Done! The Odoo server is up and running. Specifications:"
+echo "Done! The Odoo server is configured. Specifications:"
 echo "Port: $OE_PORT"
 echo "Longpolling Port: $LONGPOLLING_PORT"
 echo "User service: $OE_USER"
