@@ -148,6 +148,9 @@ echo -e "\n---- Create custom module directory ----"
 sudo su $OE_USER -c "mkdir $OE_HOME/custom"
 sudo su $OE_USER -c "mkdir $OE_HOME/custom/addons"
 
+echo -e "\n---- Create custom data directory ----"
+sudo su $OE_USER -c "mkdir $OE_HOME/data"
+
 echo -e "\n---- Setting permissions on home folder ----"
 sudo chown -R $OE_USER:$OE_USER $OE_HOME/*
 
@@ -167,6 +170,7 @@ if [ $OE_VERSION > "11.0" ];then
 else
     sudo su root -c "printf 'xmlrpc_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
 fi
+sudo su root -c "printf 'data_dir = $OE_HOME/data\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'longpolling_port = ${LONGPOLLING_PORT}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'logfile = /var/log/${OE_USER}/${OE_CONFIG}.log\n' >> /etc/${OE_CONFIG}.conf"
 
